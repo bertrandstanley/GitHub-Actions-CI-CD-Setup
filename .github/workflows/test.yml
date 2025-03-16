@@ -32,7 +32,11 @@ jobs:
       # Run build
       - name: Run Build
         run: npm run build
-
+        
+      # Install Cypress Binary
+      - name: Install Cypress Binary
+        run: npx cypress install
+      
       # Run tests
       - name: Run Tests
         run: npm run test-component
