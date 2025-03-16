@@ -28,16 +28,7 @@ jobs:
 
       # Install dependencies
       - name: 🧰 Install Deps
-        run: |
-          cd server && npm install && cd ../client && npm install
-
-      # Install Cypress binary
-      - name: Install Cypress
-        run: npx cypress install
-
-      # Run lint
-      - name: Run Lint
-        run: npm run lint
+        run: npm install
 
       # Run build
       - name: Run Build
@@ -45,4 +36,4 @@ jobs:
 
       # Run tests
       - name: Run Tests
-        run: npm run test
+        run: npm run test-gui

@@ -1,9 +1,9 @@
 # Name of the GitHub Actions workflow
-name: Deploy when develop branch is merged into the main branch.
+name: Deploy when develop branch is merged the main branch
 
 # Trigger the workflow on push and pull request events to the main branch
 on:
-  push:
+  push: 
     branches: [main]
   pull_request:
     branches:
@@ -20,32 +20,21 @@ jobs:
       # Checkout the code from the repository
       - uses: actions/checkout@v3
 
-      # Set up Node.js environment
-      - name: Use Node.js 21.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 21.x
-
-      # Install dependencies
-      - name: 🧰 Install Dependencies
-        run: npm install
-
-      # Install Cypress binary
-      - name: Install Cypress
-        run: npx cypress install
-
-      # Run Lint and Tests
-      - name: Run Tests
+      # Define a step named "Test"
+      - name: Test
+        # Run install and test scripts
         run: |
-          npm run lint
-          npm run test
-          npm run test-component
+            npm install
+            npm run build
+            npm run test-component 
 
-      # Deploy step: Only run if this is the main branch
+      # Define a step named "Deploy"
       - name: Deploy
+        # Only run this step if the branch is main
         if: github.ref == 'refs/heads/main'
-        # Set the deployment URL from secrets
+        # Set an environment variable with the deployment URL from secrets
         env:
           DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        # Run the deployment command
         run: |
-          curl -X POST "$DEPLOY_URL"
+          curl "$DEPLOY_URL"

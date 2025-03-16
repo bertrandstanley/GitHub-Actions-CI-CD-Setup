@@ -1,13 +1,20 @@
-import { defineConfig } from 'cypress';  // Importing the Cypress configuration helper
+import { defineConfig } from 'cypress';
+import viteConfig from './vite.config';
 
 export default defineConfig({
   component: {
+    port: 5173,
     devServer: {
-      framework: 'react',  // Specify that the framework used for component testing is React
-      bundler: 'vite',  // Set Vite as the bundler for the project. Ensure Vite is correctly configured
+      framework: 'react',
+      bundler: 'vite',
+      viteConfig,
     },
   },
+
   e2e: {
-    baseUrl: 'http://localhost:3001',  // Define the base URL for end-to-end tests. Ensure the app is running on this URL
+    baseUrl: 'http://localhost:3001',
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
   },
 });

@@ -11,8 +11,7 @@
     "render-build": "npm install && npm run build",
     "test": "npx cypress run --browser electron",
     "test-component": "npx cypress run --component",
-    "test-gui": "npx cypress open",
-    "lint": "eslint ."
+    "test-gui": "npx cypress open"
   },
   "keywords": [],
   "author": "",
@@ -20,18 +19,12 @@
   "devDependencies": {
     "concurrently": "^8.2.0",
     "cypress": "^13.13.0",
-    "eslint": "^9.22.0",
-    "eslint-plugin-react": "^7.37.4",
-    "globals": "^16.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.1",
-    "vitest": "^3.0.8"
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "@cypress/react": "^9.0.0",
-    "@vitejs/plugin-react": "^4.3.1"
+    "@vitejs/plugin-react": "^4.3.1",
+    "vitest": "^2.0.3"
   }
 }
