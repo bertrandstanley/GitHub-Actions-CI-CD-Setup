@@ -1,11 +1,12 @@
 # Name of workflow
-name: Test workflow when a Pull Request is made to the develop branch.
+name: Test workflow when a Pull Request is made from stanleybranch to the develop branch.
 
 # Trigger workflow on all pull requests
 on:
   pull_request:
     branches:
       - develop
+      - stanleybranch
 
 
 # Jobs to carry out
