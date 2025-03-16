@@ -34,6 +34,10 @@ jobs:
       - name: Run Build
         run: npm run build
 
+      # Install cypress
+      - name: Install Cypress
+        run: npm install cypress
+
       # Run tests
       - name: Run Tests
         run: npm run test-gui
