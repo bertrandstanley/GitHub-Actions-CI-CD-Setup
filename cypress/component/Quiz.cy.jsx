@@ -1,4 +1,7 @@
+import React from 'react';
 import Quiz from "../../client/src/components/Quiz"
+import { describe, it, beforeEach } from 'mocha'
+import { cy } from 'cypress'
 
 describe('Quiz Component', () => {
   beforeEach(() => {
