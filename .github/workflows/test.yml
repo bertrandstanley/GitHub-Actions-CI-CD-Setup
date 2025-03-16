@@ -8,7 +8,6 @@ on:
       - develop
       - stanleybranch
 
-
 # Jobs to carry out
 jobs:
   test:
@@ -19,17 +18,23 @@ jobs:
     steps:
       # Get code from repo
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2  # Update to v2 for more stability and performance
 
+      # Set up Node.js
       - name: Use Node.js 21.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2  # Update to v2 for more stability and performance
         with:
           node-version: 21.x
 
       # Install dependencies
       - name: 🧰 Install Deps
-        run: npm install
-        
+        run: |
+          cd server && npm install && cd ../client && npm install
+
+      # Install Cypress binary
+      - name: Install Cypress
+        run: npx cypress install
+
       # Run lint
       - name: Run Lint
         run: npm run lint
