@@ -20,9 +20,9 @@ jobs:
       # Checkout the code from the repository
       - uses: actions/checkout@v3
 
-      # Install cypress
-      - name: Install Cypress
-        run: npm install cypress
+      # Install Cypress Binary
+      - name: Install Cypress Binary
+        run: npx cypress install
 
       # Define a step named "Test"
       - name: Test
